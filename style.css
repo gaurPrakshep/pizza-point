@@ -140,22 +140,52 @@ body{
 /* Cart */
 .cart-area{position:relative}
 #cart-btn{
-  background:rgba(255,255,255,0.95);
-  color:var(--accent);
-  border:none;
-  padding:12px 20px;
-  border-radius:var(--radius-sm);
-  font-weight:700;
-  cursor:pointer;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
+  color: var(--accent);
+  border: none;
+  padding: 14px 24px;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
   transition: var(--transition);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-size:15px;
+  box-shadow: 
+    0 4px 20px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+  font-size: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+#cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+#cart-btn:hover::before {
+  left: 100%;
 }
 
 #cart-btn:hover {
-  background:white;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 
+    0 8px 30px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+#cart-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 10px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 .cart-preview{
@@ -206,12 +236,52 @@ body{
 .cart-items .meta{flex:1}
 .cart-items .meta small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
 .cart-actions{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
-.primary{background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:var(--radius-sm);cursor:pointer;font-weight:600;transition: var(--transition);font-size:15px}
+.primary{
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: var(--transition);
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 20px rgba(231, 76, 60, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.primary:hover::before {
+  left: 100%;
+}
 
 .primary:hover {
-  background: var(--accent-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(231, 76, 60, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.primary:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 10px rgba(231, 76, 60, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 /* Index */
@@ -390,26 +460,60 @@ body{
 
 /* buttons */
 .add-btn{
-  background:var(--accent);
-  color:white;
-  border:none;
-  padding:10px 16px;
-  border-radius:var(--radius-sm);
-  cursor:pointer;
-  font-weight:600;
-  font-size:14px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
   transition: var(--transition);
-  min-width: 80px;
+  min-width: 100px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 15px rgba(231, 76, 60, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.add-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.add-btn:hover::before {
+  left: 100%;
 }
 
 .add-btn:hover {
-  background: var(--accent-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(231, 76, 60, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.3);
 }
 
 .add-btn:active {
   transform: translateY(0);
+  box-shadow: 
+    0 2px 8px rgba(231, 76, 60, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.add-btn:focus {
+  outline: none;
+  box-shadow: 
+    0 4px 15px rgba(231, 76, 60, 0.3),
+    0 0 0 3px rgba(231, 76, 60, 0.2),
+    inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 .remove-btn{ /* styled via JS for consistency */ }
@@ -516,8 +620,23 @@ body{
 
 /* Small screens */
 @media (max-width:880px){
-  .menu-item{flex-direction:column;align-items:stretch}
-  .item-right{justify-content:flex-start;gap:12px;margin-top:12px}
+  .menu-item{
+    flex-direction:column;
+    align-items:stretch;
+    padding:16px;
+  }
+  .item-right{
+    flex-direction:column;
+    gap:10px;
+    margin-top:12px;
+    align-items:stretch;
+  }
+  .item-right .size-select,
+  .item-right .qty-input,
+  .item-right .add-btn{
+    width:100%;
+    flex:none;
+  }
   .cart-preview{right:8px;left:8px;top:auto;bottom:10px;width:auto}
   .container{padding:0 16px}
   .menu-section{padding:20px}
@@ -534,8 +653,23 @@ body{
 
 /* Tiny screens */
 @media (max-width:480px){
-  .size-select{padding:8px;font-size:13px}
-  .qty-input{width:60px;padding:8px;font-size:13px}
+  .menu-item{
+    padding:12px;
+  }
+  .item-right{
+    flex-direction:column;
+    gap:8px;
+    margin-top:10px;
+    align-items:stretch;
+  }
+  .item-right .size-select,
+  .item-right .qty-input,
+  .item-right .add-btn{
+    width:100%;
+    flex:none;
+    padding:8px;
+    font-size:13px;
+  }
   .add-btn{padding:8px 12px;font-size:13px}
   .brand h1{font-size:20px}
   .brand .tag{font-size:13px}
@@ -550,6 +684,27 @@ body{
   .topbar{padding:12px 16px}
   .item-name{font-size:16px}
   .item-desc{font-size:13px}
+}
+
+/* Extra small screens - stacked layout */
+@media (max-width: 360px) {
+  .menu-item {
+    padding: 10px;
+  }
+  .item-right {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+    align-items: stretch;
+  }
+  .item-right .size-select,
+  .item-right .qty-input,
+  .item-right .add-btn {
+    width: 100%;
+    flex: none;
+    padding: 6px;
+    font-size: 12px;
+  }
 }
 
 /* ✅ Fix cart preview for small screens */
